@@ -4,10 +4,10 @@ Algorithm to assign hospital stays to specific medical services within the hospi
 Folder structure for correct function of the algorithm:
 OSN-MedicalServiceGrouping<br>
 	├── Data_ZP<br>
-			└── 2021<br>
-					├── 24<br>
-					├── 25<br>
-					└── 27<br>
+			└──── 2021<br>
+					├────── 24<br>
+					├────── 25<br>
+					└────── 27<br>
 	├── Kroky_zaloha<br>
 	├── Prevodovniky<br>
 	├── Skripty<br>
