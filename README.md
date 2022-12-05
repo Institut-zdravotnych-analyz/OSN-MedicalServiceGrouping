@@ -2,6 +2,15 @@
 <b>[ENG]</b> Algorithm to assign hospital stays to specific medical services within the <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540>hospital network optimization reform</a>. <br>
 <b>[SK]</b> Algoritmus na zaradovanie hospitalizačných prípadov k medicínskym službám. Jedná sa o technickú implementáciu <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/316/20220930#prilohy>Príloh 2 - 12 vyhlášky 316/2022 Z. z.</a> v rámci zákona <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540> 540/2021 Z. z.</a> o kategorizácii ústavnej zdravotnej starostlivosti a o zmene a doplnení niektorých zákonov.<br>
 
+<h2>Change log</h2>
+<b>[ENG]</b> Please provide any identified issues via GitHub issue tracking or submit your proposed changes with sufficient comments.<br>
+<b>[SK]</b> V prípade, že identifikujete chyby v rámci kódu, prosím zaznamenajte ich na GitHub cez Issues, navrhnite priamo cez submit zmenu, alebo nám napíšte email na iza@health.gov.sk<br>
+<br>
+Change log:
+<ul>
+<li><b>5.12.2022</b>: First technical implementation of grouping published (Prvá verzia technickej implementácie vyhlášok publikovaná)</li>
+</ul>
+
 <h2>Technical readme</h2>
 Folder structure for correct function of the algorithm:<br>
 OSN-MedicalServiceGrouping
