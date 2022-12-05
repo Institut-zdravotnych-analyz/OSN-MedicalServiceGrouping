@@ -6,7 +6,8 @@
 #   Rok za ktory sa priraduju medicinske sluzby
 rok <- 2019
 #   Ci robit zalohy pocas procesu
-sprav_zalohy <- TRUE
+sprav_zalohy_vsetky <- FALSE
+sprav_zalohu_po_5 <- TRUE
 
 # Nacitaj potrebne kniznice.
 # UPOZORNENIE: Tieto kniznice je potrebne mat nainstalovane pred tym, ako bude

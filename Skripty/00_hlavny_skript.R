@@ -16,31 +16,31 @@ source("01_konfiguracia.R", echo = F)
 source("02_nacitanie_dat.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-# if (sprav_zalohy) {
-#   save.image(file = paste0(paths$zalohy, "02_nacitane_data_", rok, ".RData"))
-# }
+if (sprav_zalohy_vsetky) {
+  save.image(file = paste0(paths$zalohy, "02_nacitane_data_", rok, ".RData"))
+}
 
 # Priprav data na urcovanie medicinskych sluzieb
 source("03_prirrav_data.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-# if (sprav_zalohy) {
-#   save.image(file = paste0(paths$zalohy, "03_pripravene_data_", rok, ".RData"))
-# }
+if (sprav_zalohy_vsetky | sprav_zalohu_po_5) {
+  save.image(file = paste0(paths$zalohy, "03_pripravene_data_", rok, ".RData"))
+}
 
 # Priprav definicie medicinskych sluzieb
 source("04_definicie_sluzieb.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-# if (sprav_zalohy) {
-#   save.image(file = paste0(paths$zalohy, "04_definicie_sluzieb_", rok, ".RData"))
-# }
+if (sprav_zalohy_vsetky) {
+  save.image(file = paste0(paths$zalohy, "04_definicie_sluzieb_", rok, ".RData"))
+}
 
 # Priprav priradenie sluzieb
 source("05_prirpav_priradenie.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-if (sprav_zalohy) {
+if (sprav_zalohy_vsetky) {
   save.image(file = paste0(paths$zalohy, "05_pripravene_na_priradenie_", rok,
                            ".RData"))
 }
@@ -61,15 +61,15 @@ if (!exists("uzs_final") & !exists("ms_list")) {
 source("06_prirad_sluzby.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-# if (sprav_zalohy) {
-#   save.image(file = paste0(paths$zalohy, "06_priradene_sluzby_", rok, ".RData"))
-# }
+if (sprav_zalohy_vsetky) {
+  save.image(file = paste0(paths$zalohy, "06_priradene_sluzby_", rok, ".RData"))
+}
 
 # Aplikuj dodatocne specialne kriteria a prioritu medzi medicinskymi sluzbami.
 # Tiez exportuj vystup s poctami medicinskych sluzieb.
 source("07_dolad_sluzby.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
-# if (sprav_zalohy) {
-#   save.image(file = paste0(paths$zalohy, "07_konecny_stav_", rok, ".RData"))
-# }
+if (sprav_zalohy_vsetky) {
+  save.image(file = paste0(paths$zalohy, "07_konecny_stav_", rok, ".RData"))
+}
