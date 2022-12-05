@@ -1,18 +1,17 @@
-<h1>Medical services grouping / Zaraďovanie hospitalizačných prípadov do medicínskych služieb</h1>
+<h1>Zaraďovanie hospitalizačných prípadov do medicínskych služieb</h1>
 <b>[ENG]</b> Algorithm to assign hospital stays to specific medical services within the <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540>hospital network optimization reform</a>. <br>
 <b>[SK]</b> Algoritmus na zaradovanie hospitalizačných prípadov k medicínskym službám. Jedná sa o technickú implementáciu <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/316/20220930#prilohy>Príloh 2 - 12 vyhlášky 316/2022 Z. z.</a> v rámci zákona <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540> 540/2021 Z. z.</a> o kategorizácii ústavnej zdravotnej starostlivosti a o zmene a doplnení niektorých zákonov.<br>
 
 <h2>Change log</h2>
-<b>[ENG]</b> Please provide any identified issues via GitHub issue tracking or submit your proposed changes with sufficient comments.<br>
 <b>[SK]</b> V prípade, že identifikujete chyby v rámci kódu, prosím zaznamenajte ich na GitHub cez Issues, navrhnite priamo cez submit zmenu, alebo nám napíšte email na iza@health.gov.sk<br>
 <br>
 Change log:
 <ul>
-<li><b>5.12.2022</b>: First technical implementation of grouping published (Prvá verzia technickej implementácie vyhlášok publikovaná)</li>
+<li><b>5.12.2022</b>: Prvá verzia technickej implementácie vyhlášok publikovaná</li>
 </ul>
 
-<h2>Technical readme</h2>
-Folder structure for correct function of the algorithm:<br>
+<h2>Technické readme</h2>
+Potrebná priečinková štruktúra pre správne fungovanie kódu:<br>
 OSN-MedicalServiceGrouping
 <ul>
 <li>Data_ZP</li>
@@ -29,38 +28,55 @@ OSN-MedicalServiceGrouping
 <li>Vystupy</li>
 </ul>
   
-Data_ZP
-  - Folder containing data about hospitalisations divided by years.
-  - Folder for each year must be named after the year and must contain folders for each insurance company.
-  - Folders for individual insurance companies must be named after the codes of insurance companies.
+<h3>Data_ZP</h3>
+<ul>
+<li>Obsahuje hospitalizačné DRG dáta od zdravotných posiťovní po rokoch</li>
+<li>Každý rok musí byť pomenovaný ako RRRR a obsahovať priečinky pre všetky 3 ZP</li>
+<li>Priečinky ZP musia byť pomenované kódom ZP</li>
+</ul>
 
-Kroky_zaloha
-  - Folder where partial results from individual steps of the algorithm are saved, if the user allowed this option.
+<h3>Kroky_zaloha</h3>
+<ul>
+<li>Obsahuje parciálne výsledky jednotlivých krokov alogoritmu, ak to uživateľ povolil</li>
+</ul>
   
-Prevodovniky
-  - Folder containing lists defining medical services based on DRG codes, codes of diagnoses, and codes of operations.
-  - Also contains list for converting codes of departments to hospital codes.
+<h3>Prevodovniky</h3>
+<ul>
+<li>Obsahuje zoznamy / číselníky definujúce medicínske služby na základe DRG kódov, kódov diagnóz, kódy výkonu.</li>
+<ul>
+<li>Excel <code>definicie_med_sluzieb.xlsx</code> obsahuje definície medicínskych služieb podľa príloh 2 - 11 vyhlášky 316/2022 Z. z. pričom v rámci Excel je možné filtrovať vyhlášky podľa stĺpcu súbor, kde 10 = Príloha 2 až po 19 = Príloha 11</li>
+</ul>
+<li>Obsahuje číselníky na prevod kódov oddelení na nemocničné kódy.</li>
+</ul>
   
-Skripty
-  - Folder containing scripts to run algorithm.
+<h3>Skripty</h3>
+<ul>
+<li>Obsahuje skripty na beh algoritmu v prostredí <code>R</code></li>
+</ul>
   
-Vystupy
-  - Folder where output from algorithm containing number of hospitalisations per hospital per medical service.
-  
+<h3>Vystupy</h3>
+<ul>
+<li>Obsahuje výstupy z algoritmu obsahujúce počty hospitalizácií per nemocnica a medicínska služba</li>
+</ul>  
 
-Skripty/00_hlavny_skript.R
-  - Main script of the algorithm that calls other scripts.
-  - If case of small data, algorithm can be run by running this script.
-  - If case of large data or small RAM, it is recommended to open this script and manually run segments. Also recommended is to allow algorithm to save partial result after 5th step and once that is run, restart R to clear RAM. After restart manually run segments from segment on rows 50-56 to the end.
+<h3>Skripty/00_hlavny_skript.R</h3>
+<ul>
+<li>Hlavný skript, ktorý volá ďalšie skripty</li>
+<li>V prípade veľkých dát, alebo malej RAM, odporúčame otvoriť tento skript a spúšťať ho manuálne po častiach. Taktiež odporúčame povoliť ukladanie parciálnych výsledkov po 5tom kroku, po ktorom odporúčame reštartovať <code>R</code> na prečistenie RAM. Po reštarte spustite segmenty od riadkov 50-56 po koniec.</li>
+</ul> 
   
-Skripty/01_konfiguracia.R
-  - Script that sets up paths to folders and files and other parameters necessary for the algorithm.
-  - In row 7 user specifies year for which to assign medical services.
-  - In row 9 user specifies whether to save partial results after each step.
-  - In row 10 user specifies whether to save partial results after step 5. (Recommended for large data or small RAM)
-  - Other parameters can be changed to reflect conditions on local computer. Do that only if one knows what he is doing.
+<h3>Skripty/01_konfiguracia.R</h3>
+<ul>
+<li>Skript definujúci cesty k priečinkom a súborom a iné parametre pre algoritmus</li>
+<li>V riadku 7 užívateľ definuje rok pre ktorý sa určujú medicínske služby</li>
+<li>V riadku 9 užívateľ definuje ukladanie parciálnych výsledkov po každom kroku</li>
+<li>V riadku 10 užívateľ definuje ukladanie parciálnych výsledkov po 5. kroku (odporúčame pre veľké dáta, malú RAM)</li>
+<li>Ostatné parametre sa môžu upravovať podľa potrieb (jeden toto robí, ak ten vie čo robí)</li>
+</ul>  
   
-Skripty/02-07
-  - Scripts performing steps of the algortihm.
-  - Contain comments to take reviewer through algorithm.
-  - Modify at your own peril.
+<h3>Skripty/02-07</h3>
+<ul>
+<li>Skripty vykonávajúce algoritmus</li>
+<li>Obsahuje poznámky na zoznámenie s krokmi algoritmu</li>
+<li>Úprava na vlastné nebezpečie</li>
+</ul> 
