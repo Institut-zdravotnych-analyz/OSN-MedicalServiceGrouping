@@ -1,17 +1,24 @@
-# OSN-MedicalServiceGrouping
-Algorithm to assign hospital stays to specific medical services within the hospital network optimization reform.
+<h1>Medical services grouping / Zaraďovanie hospitalizačných prípadov do medicínskych služieb</h1>
+<b>[ENG]</b> Algorithm to assign hospital stays to specific medical services within the <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540>hospital network optimization reform</a>. <br>
+<b>[SK]</b> Algoritmus na zaradovanie hospitalizačných prípadov k medicínskym službám. Jedná sa o technickú implementáciu <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/316/20220930#prilohy>Príloh 2 - 12 vyhlášky 316/2022 Z. z.</a> v rámci zákona <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540> 540/2021 Z. z.</a> o kategorizácii ústavnej zdravotnej starostlivosti a o zmene a doplnení niektorých zákonov.<br>
 
-Folder structure for correct function of the algorithm:
-OSN-MedicalServiceGrouping<br>
-	├── Data_ZP<br>
-			└──── 2021<br>
-					├────── 24<br>
-					├────── 25<br>
-					└────── 27<br>
-	├── Kroky_zaloha<br>
-	├── Prevodovniky<br>
-	├── Skripty<br>
-	└── Vystupy<br>
+<h2>Technical readme</h2>
+Folder structure for correct function of the algorithm:<br>
+OSN-MedicalServiceGrouping
+<ul>
+<li>Data_ZP</li>
+	<ul>
+<li>2021</li>
+		<ul>
+<li>24</li>
+<li>25</li>
+<li>27</li>
+			</ul></ul>
+<li>Kroky_zaloha</li>
+<li>Prevodovniky</li>
+<li>Skripty</li>
+<li>Vystupy</li>
+</ul>
   
 Data_ZP
   - Folder containing data about hospitalisations divided by years.
