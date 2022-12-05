@@ -3,7 +3,7 @@
 <b>[SK]</b> Algoritmus na zaradovanie hospitalizačných prípadov k medicínskym službám. Jedná sa o technickú implementáciu <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2022/316/20220930#prilohy>Príloh 2 - 12 vyhlášky 316/2022 Z. z.</a> v rámci zákona <a href=https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2021/540> 540/2021 Z. z.</a> o kategorizácii ústavnej zdravotnej starostlivosti a o zmene a doplnení niektorých zákonov.<br>
 
 <h2>Change log</h2>
-<b>[SK]</b> V prípade, že identifikujete chyby v rámci kódu, prosím zaznamenajte ich na GitHub cez Issues, navrhnite priamo cez submit zmenu, alebo nám napíšte email na iza@health.gov.sk<br>
+V prípade, že identifikujete chyby v rámci kódu, prosím zaznamenajte ich na GitHub cez Issues, navrhnite priamo cez submit zmenu, alebo nám napíšte email na iza@health.gov.sk<br>
 <br>
 Change log:
 <ul>
@@ -28,19 +28,19 @@ OSN-MedicalServiceGrouping
 <li>Vystupy</li>
 </ul>
   
-<h3>Data_ZP</h3>
+<h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Data_ZP>Data_ZP</a></h3>
 <ul>
 <li>Obsahuje hospitalizačné DRG dáta od zdravotných posiťovní po rokoch</li>
 <li>Každý rok musí byť pomenovaný ako RRRR a obsahovať priečinky pre všetky 3 ZP</li>
 <li>Priečinky ZP musia byť pomenované kódom ZP</li>
 </ul>
 
-<h3>Kroky_zaloha</h3>
+<h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Kroky_zaloha>Kroky_zaloha</a></h3>
 <ul>
 <li>Obsahuje parciálne výsledky jednotlivých krokov alogoritmu, ak to uživateľ povolil</li>
 </ul>
   
-<h3>Prevodovniky</h3>
+<h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Prevodovniky>Prevodovniky</a></h3>
 <ul>
 <li>Obsahuje zoznamy / číselníky definujúce medicínske služby na základe DRG kódov, kódov diagnóz, kódy výkonu.</li>
 <ul>
