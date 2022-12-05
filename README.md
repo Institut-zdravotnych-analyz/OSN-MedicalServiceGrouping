@@ -49,16 +49,11 @@ OSN-MedicalServiceGrouping
 <li>Obsahuje číselníky na prevod kódov oddelení na nemocničné kódy.</li>
 </ul>
   
-<h3>Skripty</h3>
+<h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Skripty>Skripty</a></h3>
 <ul>
 <li>Obsahuje skripty na beh algoritmu v prostredí <code>R</code></li>
 </ul>
   
-<h3>Vystupy</h3>
-<ul>
-<li>Obsahuje výstupy z algoritmu obsahujúce počty hospitalizácií per nemocnica a medicínska služba</li>
-</ul>  
-
 <h3>Skripty/00_hlavny_skript.R</h3>
 <ul>
 <li>Hlavný skript, ktorý volá ďalšie skripty</li>
@@ -80,3 +75,8 @@ OSN-MedicalServiceGrouping
 <li>Obsahuje poznámky na zoznámenie s krokmi algoritmu</li>
 <li>Úprava na vlastné nebezpečie</li>
 </ul> 
+
+<h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Vystupy>Vystupy</a></h3>
+<ul>
+<li>Obsahuje výstupy z algoritmu obsahujúce počty hospitalizácií per nemocnica a medicínska služba</li>
+</ul>  
