@@ -8,9 +8,23 @@ V prípade, že identifikujete chyby v rámci kódu, prosím zaznamenajte ich na
 Change log:
 <ul>
 <li><b>5.12.2022</b>: Prvá verzia technickej implementácie vyhlášok publikovaná</li>
+<li><b>7.6.2023</b>: Druhá verzia technickej implementácie vyhlášok publikovaná</li>
 </ul>
 
 <h2>Technické readme</h2>
+<h3>Príprava algoritmu</h3>
+Algoritmus je implementovaný v jazyku R, ktorý treba mať nainštalovaný a využíva nasledovné knižnice:<br>
+<ul>
+<li>dplyr</li>
+<li>data.table</li>
+<li>tidyr</li>
+<li>readxl</li>
+<li>stringr</li>
+<li>lubridate</li>
+</ul>
+ktoré sa dajú nainštalovať pomocou skriptu <i>instalacia_potrebnych_kniznic.R</i>. Pre správne fungovanie algoritmu je potrebné dodržať priečinkovú štruktúru popísanú nižšie a mať ju stiahnutú. Algoritmus sa iniciuje spustením skriptu <i>00_hlavny_skript.R</i> ako celku, alebo manuálne po častiach.<br>
+
+<br>
 Potrebná priečinková štruktúra pre správne fungovanie kódu:<br>
 OSN-MedicalServiceGrouping
 <ul>
@@ -44,8 +58,12 @@ OSN-MedicalServiceGrouping
 <ul>
 <li>Obsahuje zoznamy / číselníky definujúce medicínske služby na základe DRG kódov, kódov diagnóz, kódy výkonu.</li>
 <ul>
-<li>Excel <code>definicie_med_sluzieb.xlsx</code> obsahuje definície medicínskych služieb podľa príloh 2 - 11 vyhlášky 316/2022 Z. z. pričom v rámci Excel je možné filtrovať vyhlášky podľa stĺpcu súbor, kde 10 = Príloha 2 až po 19 = Príloha 11</li>
+<li>Excel <code>definicie_med_sluzieb.xlsx</code> obsahuje definície medicínskych služieb podľa príloh 2 - 11 vyhlášky 316/2022 Z. z. pričom v rámci Excel je možné filtrovať vyhlášky podľa stĺpcu súbor, kde 10 = Príloha 2 až po 19 = Príloha 11.</li>
+<li>Súbor <code>signif_vykony.csv</code> obsahuje zoznam signifikantných operačných výkonov.</li>
+<li>Súbor <code>tazke_problemy.csv</code> obsahuje zoznam ťažkých problémov.</li>
+<li>Súbor <code>uroven_sluzby.csv</code> obsahuje úrovne medicínskych služieb pre určenie priorít pri priraďovaní služieb hospitalizáciám</li>
 </ul>
+<li>Obsahuje číselníky na prevod kódov výkonov jednodňovej starostlivosti na zodpovedajúce kódy používané pri DRG.</li>
 <li>Obsahuje číselníky na prevod kódov oddelení na nemocničné kódy.</li>
 </ul>
   
@@ -66,14 +84,15 @@ OSN-MedicalServiceGrouping
 <li>V riadku 7 užívateľ definuje rok pre ktorý sa určujú medicínske služby</li>
 <li>V riadku 9 užívateľ definuje ukladanie parciálnych výsledkov po každom kroku</li>
 <li>V riadku 10 užívateľ definuje ukladanie parciálnych výsledkov po 5. kroku (odporúčame pre veľké dáta, malú RAM)</li>
-<li>Ostatné parametre sa môžu upravovať podľa potrieb (jeden toto robí, ak ten vie čo robí)</li>
+<li>V riadku 12 užívateľ definuje ukladanie výstupov o chybách v dátach</li>
+<li>V riadku 14 užívateľ definuje vylúčenie hospitalizácií, ktoré boli v rámci DRG zlúčené do jednej (zlúčená hospitalizácia ostáva v dátach)</li>
+<li>Ostatné parametre sa môžu upravovať podľa potrieb</li>
 </ul>  
   
 <h3>Skripty/02-07</h3>
 <ul>
 <li>Skripty vykonávajúce algoritmus</li>
-<li>Obsahuje poznámky na zoznámenie s krokmi algoritmu</li>
-<li>Úprava na vlastné nebezpečie</li>
+<li>Obsahujú poznámky na oboznámenie sa s krokmi algoritmu</li>
 </ul> 
 
 <h3><a href=https://github.com/Institut-Zdravotnych-Analyz/OSN-MedicalServiceGrouping/tree/main/Vystupy>Vystupy</a></h3>
