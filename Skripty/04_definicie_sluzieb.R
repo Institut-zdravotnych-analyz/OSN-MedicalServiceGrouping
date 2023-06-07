@@ -62,7 +62,7 @@ defs_vedla <- defs_vedla %>%
   select(-diag_code, -`typ diagnozy`)
 
 # Pripoj vedlajsie kriteria k hlavnym kriteriam.
-# Tam kde nie chyba diagnoza alebo vykon v hlavnych kriteriach, pouzi hodnotu
+# Tam kde chyba diagnoza alebo vykon v hlavnych kriteriach, pouzi hodnotu
 # z vedljsich kriterii.
 defs_hlavne <- defs_hlavne %>%
   left_join(defs_vedla, by = c("join", "subor")) %>%
@@ -74,15 +74,19 @@ defs_hlavne <- defs_hlavne %>%
 # Nahrad chybajuce diagnozy, vykony, alebo drg znakmi pre "akakolvek" a
 # transformuj ich na stadardny tvar (male pismena bez diakritiky a inych znakov)
 defs_hlavne <- defs_hlavne %>%
-  mutate(drg = fifelse(is.na(drg), ".*",tolower(drg)),
-         icd = fifelse(is.na(icd), ".*",tolower(icd)),
-         icd_any = fifelse(is.na(icd_any), ".*",tolower(icd_any)),
-         icd_vedlajsia = fifelse(is.na(icd_vedlajsia), ".*",tolower(icd_vedlajsia)),
+  mutate(drg = fifelse(is.na(drg), ".*", tolower(drg)),
+         icd = fifelse(is.na(icd), ".*", tolower(icd)),
+         icd_any = fifelse(is.na(icd_any), ".*", tolower(icd_any)),
+         icd_vedlajsia = fifelse(is.na(icd_vedlajsia), ".*",
+                                 tolower(icd_vedlajsia)),
          vykon = fifelse(is.na(vykon), ".*", tolower(vykon))) %>%
-  mutate(drg = fifelse(drg != ".*", gsub("[^0-9a-zA-Z]", "",drg), drg),
-         icd = fifelse(icd != ".*", gsub("[^0-9a-zA-Z]", "",icd),icd),
-         icd_any = fifelse(icd_any != ".*", gsub("[^0-9a-zA-Z]", "",icd_any),icd_any),
-         icd_vedlajsia = fifelse(icd_vedlajsia != ".*", gsub("[^0-9a-zA-Z]", "",icd_vedlajsia),icd_vedlajsia),
+  mutate(drg = fifelse(drg != ".*", gsub("[^0-9a-zA-Z]", "", drg), drg),
+         icd = fifelse(icd != ".*", gsub("[^0-9a-zA-Z]", "", icd), icd),
+         icd_any = fifelse(icd_any != ".*", gsub("[^0-9a-zA-Z]", "", icd_any),
+                           icd_any),
+         icd_vedlajsia = fifelse(icd_vedlajsia != ".*",
+                                 gsub("[^0-9a-zA-Z]", "", icd_vedlajsia),
+                                 icd_vedlajsia),
          vykon = fifelse(vykon != ".*", gsub("[^0-9a-zA-Z]", "", vykon), vykon)) %>%
   filter(!(drg == ".*" & icd == ".*" & vykon == ".*"  & icd_vedlajsia == ".*"
            & icd_any == ".*"))
